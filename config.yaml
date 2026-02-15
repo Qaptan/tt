@@ -1,0 +1,121 @@
+project:
+  name: tiktok-autonomous-growth-engine
+  storage_root: storage
+execution:
+  account_mode: sequential
+  max_workers: 2
+generation:
+  allowed_durations:
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  default_duration_seconds: 12
+  video:
+    resolution: 1080x1920
+    fps: 30
+    background_colors:
+    - '0x101820'
+    - '0x1f2a44'
+    - '0x2d1e2f'
+    - '0x1f3b4d'
+  formats:
+  - story
+  - listicle
+  - tutorial
+  - challenge
+  hook_styles:
+  - question
+  - shock
+  - contrarian
+  - promise
+  caption_styles:
+  - direct
+  - curiosity
+  - urgency
+  - community
+analytics:
+  mock_mode: true
+  min_age_minutes_for_collection: 5
+  engagement_weights:
+    views: 0.001
+    completion_rate: 100.0
+    shares: 6.0
+    comments: 4.0
+strategy:
+  learning_rate: 0.15
+  underperforming_threshold: 0.45
+  rotation_floor: 0.05
+  initial_format_weights:
+    story: 1.0
+    listicle: 1.0
+    tutorial: 1.0
+    challenge: 1.0
+  initial_hook_weights:
+    question: 1.0
+    shock: 1.0
+    contrarian: 1.0
+    promise: 1.0
+  initial_caption_weights:
+    direct: 1.0
+    curiosity: 1.0
+    urgency: 1.0
+    community: 1.0
+  initial_duration_weights:
+    '9': 1.0
+    '10': 1.0
+    '11': 1.0
+    '12': 1.0
+    '13': 1.0
+    '14': 1.0
+    '15': 1.0
+upload:
+  mode: draft
+  retry_attempts: 3
+  retry_backoff_seconds: 5
+  headless: true
+  mock_mode: true
+  api_base_url: https://open.tiktokapis.com
+  tiktok_upload_url: https://www.tiktok.com/upload
+  post_wait_seconds: 12
+scheduler:
+  interval_minutes: 60
+  cron_enabled: false
+accounts:
+- name: fitness_account
+  active: true
+  niche: fitness
+  language: en
+  timezone: America/New_York
+  ollama_model: llama3.1:8b
+  tags_seed:
+  - fitness
+  - workout
+  - health
+  - motivation
+  session_state_path: storage/accounts/fitness_account/session_state.json
+- name: finance_account
+  active: true
+  niche: personal finance
+  language: en
+  timezone: America/Chicago
+  ollama_model: llama3.1:8b
+  tags_seed:
+  - money
+  - saving
+  - investing
+  - budget
+  session_state_path: storage/accounts/finance_account/session_state.json
+- name: motivasion_tr
+  username_or_email: motivasion.tr
+  password: Qaptan.123
+  active: true
+  niche: general
+  language: en
+  timezone: UTC
+  ollama_model: llama3.1:8b
+  tags_seed: []
+  session_state_path: storage/accounts/motivasion_tr/session_state.json

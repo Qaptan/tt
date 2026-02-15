@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+storage/logs/*.log
+storage/logs/*.jsonl
+storage/videos/*.mp4
+storage/videos/*.wav
+storage/videos/*.srt
+storage/videos/*.png
+storage/models/*.json
+storage/metrics/*.jsonl
+storage/accounts/*/session*.json

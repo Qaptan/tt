@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiktok-autonomous-growth-engine"
+version = "0.1.0"
+description = "Fully local autonomous TikTok growth engine"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML>=6.0",
+  "pandas>=2.0",
+  "rich>=13.0",
+  "pytest>=8.0"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = [
+  "core*",
+  "accounts*",
+  "trend_engine*",
+  "content_engine*",
+  "media_engine*",
+  "upload_engine*",
+  "analytics_engine*",
+  "strategy_engine*",
+  "scheduler*"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"

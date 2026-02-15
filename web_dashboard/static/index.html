@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TikTok Otonom Motor | Kontrol Merkezi</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="aurora">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+      <span class="blob blob-c"></span>
+    </div>
+
+    <header class="topbar reveal delay-1">
+      <div class="brand-block">
+        <p class="eyebrow">OTONOM SISTEM</p>
+        <h1>Kontrol Merkezi</h1>
+        <p class="subtitle">TikTok buyume motorunu tek panelden yonet.</p>
+      </div>
+      <div class="status-pill" id="health-pill">Sistem kontrol ediliyor...</div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="panel reveal delay-2">
+        <h2>Operasyon Paneli</h2>
+        <p class="panel-note">Hesap sec, boru hattini calistir ve modeli guncelle.</p>
+
+        <label class="field-label" for="account-select">Hesap</label>
+        <select id="account-select" class="select">
+          <option value="">Tum Aktif Hesaplar</option>
+        </select>
+
+        <div class="button-row">
+          <button id="btn-init" class="btn btn-neutral">Ilk Kurulum</button>
+          <button id="btn-run" class="btn btn-primary">Dongu Calistir</button>
+          <button id="btn-analyze" class="btn btn-accent">Analiz Et</button>
+          <button id="btn-retrain" class="btn btn-warning">Modeli Egit</button>
+        </div>
+
+        <div class="split-controls">
+          <div>
+            <label class="field-label" for="schedule-cycles">Zamanlayici Tur Sayisi</label>
+            <input id="schedule-cycles" class="select" type="number" min="1" max="500" value="1" />
+          </div>
+          <div class="button-stack">
+            <button id="btn-schedule" class="btn btn-primary">Zamanlayiciyi Calistir</button>
+            <button id="btn-install-cron" class="btn btn-neutral">Cron Kur</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel reveal delay-3">
+        <h2>Sistem Nabzi</h2>
+        <div class="cards">
+          <article class="metric-card">
+            <p class="metric-label">Calisma Suresi</p>
+            <p class="metric-value" id="uptime-value">-</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Toplam Hesap</p>
+            <p class="metric-value" id="accounts-total-value">-</p>
+          </article>
+          <article class="metric-card">
+            <p class="metric-label">Aktif Hesap</p>
+            <p class="metric-value" id="accounts-active-value">-</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel panel-wide reveal delay-4">
+        <h2>Hesap Yonetimi</h2>
+        <p class="panel-note">Sadece kullanici adi/e-posta ve sifre girerek hesap ekle veya sil.</p>
+        <div class="account-form-grid">
+          <div>
+            <label class="field-label" for="acc-login">Kullanici Adi veya E-posta</label>
+            <input id="acc-login" class="select" placeholder="ornek_kullanici veya kullanici@mail.com" />
+          </div>
+          <div>
+            <label class="field-label" for="acc-password">Sifre</label>
+            <input id="acc-password" class="select" type="password" placeholder="••••••••" />
+          </div>
+        </div>
+        <div class="account-row">
+          <div class="button-row">
+            <button id="btn-account-save" class="btn btn-primary">Hesabi Kaydet</button>
+            <button id="btn-account-clear" class="btn btn-neutral">Formu Temizle</button>
+            <button id="btn-account-delete" class="btn btn-warning">Hesabi Sil</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-wide reveal delay-4">
+        <div class="panel-head">
+          <h2>Hesap Performansi</h2>
+          <button id="btn-refresh" class="btn btn-ghost">Yenile</button>
+        </div>
+        <div id="stats-table-wrap" class="stats-wrap"></div>
+      </section>
+
+      <section class="panel panel-wide reveal delay-5">
+        <div class="panel-head">
+          <h2>Canli Olay Akisi</h2>
+          <button id="btn-refresh-logs" class="btn btn-ghost">Loglari Yenile</button>
+        </div>
+        <ul id="event-feed" class="event-feed"></ul>
+      </section>
+
+      <section class="panel panel-wide reveal delay-6">
+        <h2>Yanıt Konsolu</h2>
+        <pre id="response-console" class="console">{}</pre>
+      </section>
+
+      <section class="panel panel-wide reveal delay-6">
+        <h2>Konfigurasyon Ozeti</h2>
+        <pre id="config-console" class="console">{}</pre>
+      </section>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
